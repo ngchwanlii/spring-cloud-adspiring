@@ -2,7 +2,7 @@
 
 ## Description
 - Adspiring is an advertising system that provide functionalities such as serving & retrieving ads, 
-ads budgeting, payment & exposure monitor.
+ads budgeting, payment & monitoring advertising exposure
 
 ## Technology Stack
 - Language: Java 
