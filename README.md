@@ -1,13 +1,13 @@
 # Adspiring - An Advertising System
 
 # Advertising System Architecture (Serving & Retrieval part)
-![adspiring-system-architecture-overview](adspiring-system-architecture-overview.png)
+![adspiring-system-architecture-overview](img/adspiring-system-architecture-overview.png)
 
 # Advertising Serving System (Detail)
-![adspiring-serving-system-detail](adspiring-serving-system-detail.png)
+![adspiring-serving-system-detail](img/adspiring-serving-system-detail.png)
 
 # Advertising Retrieval System (Detail)
-![adspiring-retrieval-system-detail](adspiring-retrieval-system-detail.png)
+![adspiring-retrieval-system-detail](img/adspiring-retrieval-system-detail.png)
 
 ## Implemented functionalities
 - [x] Ads serving system
