@@ -1,5 +1,20 @@
-# Adspiring - An Advertising System
+# Adspiring - Advertising System
 
+## Description
+- Adspiring is an advertising system that provide functionalities such as serving & retrieving ads, 
+ads budgeting, payment & exposure monitor.
+
+## Technology Stack
+- Language: Java 
+- Framework: Spring Cloud + Spring Boot
+- Database: MySQL
+- Gateway: Spring Cloud Zuul
+- Service Registry: Eureka
+- Inter Process Communication: Ribbon + Feign
+- Latency & fault tolerance: Hystrix + Hystrix Dashboard
+- Distributed streaming platform: Apache Kafka 
+ 
+ 
 # Advertising System Architecture (Serving & Retrieval part)
 ![adspiring-system-architecture-overview](img/adspiring-system-architecture-overview.png)
 
@@ -12,9 +27,9 @@
 ## Implemented functionalities
 - [x] Ads serving system
 - [x] Ads retrieval system
-- [] Ads payment system 
-- [] Ads reporting system 
-- [] Ads exposure monitoring system 
+- [ ] Ads payment system 
+- [ ] Ads reporting system 
+- [ ] Ads exposure monitoring system 
 
 # Run Program
 1. Launch EurekaApplication
@@ -43,13 +58,12 @@ each other.
 ## adspiring-ad-service
 - Contains the core logic, controllers, services for developing Adspiring Serving & Retrievavl system
 
-### adspiring-ad-service/ad-common
+### ad-common
 - Contains generic request, response, configuration, vo, exception handler
 
-### adspiring-ad-service
-#### ad-binlog-kafka + ad-binlog-common + ad-search
+### ad-binlog-kafka + ad-binlog-common + ad-search
 - Tasks Diagram:
-    ![kafka-microservice-1](kafka-microservice-1.png)
+    ![kafka-microservice-1](img/kafka-microservice-1.png)
 - Tasks:
     - 1 ```ad-binlog-kafka```
         - Monitoring MySQL Binary Log (binlog) & analyze it
@@ -62,11 +76,14 @@ each other.
         - Use of ```hystrix``` in this module as fallback method to handle errors when fetching ads failed. The
          fallback method can perform specific task such as record number of apis' call that are successful / fail
           & logging error for further debugging
+
+### ad-dashboard
+- Responsible for monitor Hystrix metrics in real time
   
-#### ad-dump
+### ad-dump
 - Responsible for dumping full index data to local files (e.g: x.data) when application load
 
-#### ad-sponsor
+### ad-sponsor
 - Responsible for advertiser to post ads in ads serving system, can add, delete, update, get posted ads data      
 
 # Eureka 
