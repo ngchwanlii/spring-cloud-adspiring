@@ -34,7 +34,44 @@ public class AdUnitObject {
         if (newObject.getAdPlanObject() != null) {
             this.adPlanObject = newObject.getAdPlanObject();
         }
-
     }
+
+    private static boolean isScreen(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.SCREEN) > 0;
+    }
+
+    private static boolean isCard(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.CARD) > 0;
+    }
+
+    private static boolean isCardMiddle(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.CARD_MIDDLE) > 0;
+    }
+
+    private static boolean isCardPause(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.CARD_PAUSE) > 0;
+    }
+
+    private static boolean isCardPost(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.CARD_POST) > 0;
+    }
+
+    public static boolean isAdSlotTypeMatch(int adSlotPositionType, int positionType) {
+        switch (adSlotPositionType) {
+            case AdUnitConstants.POSITION_TYPE.SCREEN:
+                return isScreen(positionType);
+            case AdUnitConstants.POSITION_TYPE.CARD:
+                return isCard(positionType);
+            case AdUnitConstants.POSITION_TYPE.CARD_MIDDLE:
+                return isCardMiddle(positionType);
+            case AdUnitConstants.POSITION_TYPE.CARD_PAUSE:
+                return isCardPause(positionType);
+            case AdUnitConstants.POSITION_TYPE.CARD_POST:
+                return isCardPost(positionType);
+            default:
+                return false;
+        }
+    }
+
 
 }

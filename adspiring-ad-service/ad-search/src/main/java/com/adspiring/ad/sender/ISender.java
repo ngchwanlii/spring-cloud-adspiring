@@ -1,6 +1,6 @@
 package com.adspiring.ad.sender;
 
-import com.adspiring.ad.mysql.dto.MySqlRowData;
+import com.adspiring.ad.dto.MySqlRowData;
 
 public interface ISender {
 

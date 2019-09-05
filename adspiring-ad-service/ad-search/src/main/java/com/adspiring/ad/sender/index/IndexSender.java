@@ -1,10 +1,10 @@
 package com.adspiring.ad.sender.index;
 
+import com.adspiring.ad.constant.Constant;
+import com.adspiring.ad.dto.MySqlRowData;
 import com.adspiring.ad.dump.table.*;
 import com.adspiring.ad.handler.AdLevelDataHandler;
 import com.adspiring.ad.index.DataLevel;
-import com.adspiring.ad.mysql.constant.Constant;
-import com.adspiring.ad.mysql.dto.MySqlRowData;
 import com.adspiring.ad.sender.ISender;
 import com.adspiring.ad.utils.CommonUtils;
 import com.alibaba.fastjson.JSON;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Component("indexSender")
+@Component
 // for building / updating incremental index by converting mysql data -> <ad-xyz> table
 public class IndexSender implements ISender {
 

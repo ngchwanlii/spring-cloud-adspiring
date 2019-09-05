@@ -1,19 +1,25 @@
 package com.adspiring.ad.index.adunitdistrict;
 
 import com.adspiring.ad.index.IndexAware;
+import com.adspiring.ad.search.vo.feature.DistrictFeature;
 import com.adspiring.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
 public class AdUnitDistrictIndex implements IndexAware<String, Set<Long>> {
 
+    // <String, Set<Long>>
+    // <state-city, Set<Long>>: Combined state-city as one "key"
     private static Map<String, Set<Long>> districtUnitMap;
     private static Map<Long, Set<String>> unitDistrictMap;
 
@@ -86,4 +92,24 @@ public class AdUnitDistrictIndex implements IndexAware<String, Set<Long>> {
         log.info("unitDistrictMap , after delete {}", unitDistrictMap);
 
     }
+
+    public boolean match(Long adUnitId,
+                         List<DistrictFeature.StateAndCity> districts) {
+        if (unitDistrictMap.containsKey(adUnitId) &&
+                CollectionUtils.isNotEmpty(unitDistrictMap.get(adUnitId))
+        ) {
+            Set<String> unitDistricts = unitDistrictMap.get(adUnitId);
+
+            List<String> targetDistricts = districts.stream()
+                    .map(d -> CommonUtils.stringConcat(
+                            d.getState(), d.getCity()
+                    )).collect(Collectors.toList());
+
+            return CollectionUtils.isSubCollection(targetDistricts, unitDistricts);
+        }
+
+        return false;
+
+    }
+
 }

@@ -12,6 +12,4 @@ public class AdUnitInterestObject {
     private Long unitId;
     private String tag;
 
-
-
 }

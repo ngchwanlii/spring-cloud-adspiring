@@ -1,9 +1,9 @@
 package com.adspiring.ad.index;
 
+import com.adspiring.ad.constant.OpType;
 import com.adspiring.ad.dump.DConstant;
 import com.adspiring.ad.dump.table.*;
 import com.adspiring.ad.handler.AdLevelDataHandler;
-import com.adspiring.ad.mysql.constant.OpType;
 import com.alibaba.fastjson.JSON;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;

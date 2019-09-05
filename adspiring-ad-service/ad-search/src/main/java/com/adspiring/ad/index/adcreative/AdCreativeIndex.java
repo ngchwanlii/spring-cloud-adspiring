@@ -2,9 +2,10 @@ package com.adspiring.ad.index.adcreative;
 
 import com.adspiring.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
@@ -15,6 +16,28 @@ public class AdCreativeIndex implements IndexAware<Long, AdCreativeObject> {
 
     static {
         objectMap = new ConcurrentHashMap<>();
+    }
+
+    public List<AdCreativeObject> fetch(Collection<Long> creativeAdIds) {
+
+        if (CollectionUtils.isEmpty(creativeAdIds)) {
+            return Collections.emptyList();
+        }
+
+        List<AdCreativeObject> result = new ArrayList<>();
+
+        creativeAdIds.forEach(c -> {
+            AdCreativeObject object = get(c);
+            if (object == null) {
+                log.error("AdCreativeObject not found");
+                return;
+            }
+
+            result.add(object);
+        });
+
+        return result;
+
     }
 
     @Override

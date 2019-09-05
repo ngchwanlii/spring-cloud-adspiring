@@ -1,5 +1,6 @@
 package com.adspiring.ad.handler;
 
+import com.adspiring.ad.constant.OpType;
 import com.adspiring.ad.dump.table.*;
 import com.adspiring.ad.index.DataTable;
 import com.adspiring.ad.index.IndexAware;
@@ -14,7 +15,6 @@ import com.adspiring.ad.index.adunit.AdUnitObject;
 import com.adspiring.ad.index.adunitdistrict.AdUnitDistrictIndex;
 import com.adspiring.ad.index.adunitinterest.AdUnitInterestIndex;
 import com.adspiring.ad.index.adunitkeyword.AdUnitKeywordIndex;
-import com.adspiring.ad.mysql.constant.OpType;
 import com.adspiring.ad.utils.CommonUtils;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;

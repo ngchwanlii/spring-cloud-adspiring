@@ -2,12 +2,12 @@ package com.adspiring.ad.index.adcreativeunit;
 
 
 import com.adspiring.ad.index.IndexAware;
+import com.adspiring.ad.index.adunit.AdUnitObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
@@ -100,6 +100,26 @@ public class AdCreativeUnitIndex implements IndexAware<String, AdCreativeUnitObj
         log.info("AdCreativeUnitIndex: objectMap after add: {}", objectMap);
         log.info("AdCreativeUnitIndex: creativeUnitMap after add: {}", creativeUnitMap);
         log.info("AdCreativeUnitIndex: unitCreativeMap after add: {}", unitCreativeMap);
+
+    }
+
+    public List<Long> selectCreativeAds(List<AdUnitObject> unitObjects) {
+
+        if (CollectionUtils.isEmpty(unitObjects)) {
+            return Collections.emptyList();
+        }
+
+        List<Long> result = new ArrayList<>();
+
+        for (AdUnitObject unitObject : unitObjects) {
+
+            Set<Long> creativeIds = unitCreativeMap.get(unitObject.getUnitId());
+            if (CollectionUtils.isNotEmpty(creativeIds)) {
+                result.addAll(creativeIds);
+            }
+        }
+
+        return result;
 
     }
 

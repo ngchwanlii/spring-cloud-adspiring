@@ -17,7 +17,7 @@ public class AdCreativeObject {
     private Integer height;
     private Integer width;
     private Integer auditStatus;
-    private Integer url;
+    private String url;
 
     public void update(AdCreativeObject newObject) {
 
