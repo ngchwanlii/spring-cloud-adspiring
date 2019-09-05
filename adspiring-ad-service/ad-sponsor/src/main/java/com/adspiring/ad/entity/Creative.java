@@ -48,7 +48,7 @@ public class Creative {
 
     /** Only video type ads can set duration, else all set to 0**/
     @Basic
-    @Column(name = "size", nullable = false)
+    @Column(name = "duration", nullable = false)
     private Integer duration;
 
     /** Audit status - legal / illegal ads */

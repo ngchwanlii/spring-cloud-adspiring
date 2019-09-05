@@ -1,6 +1,6 @@
 package com.adspiring.ad.service;
 
-import com.adspiring.ad.Application;
+import com.adspiring.ad.TestApplication;
 import com.adspiring.ad.constant.CommonStatus;
 import com.adspiring.ad.dao.AdPlanRepository;
 import com.adspiring.ad.dao.AdUnitRepository;
@@ -37,7 +37,7 @@ import java.util.List;
 
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class},
+@SpringBootTest(classes = {TestApplication.class},
         webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class DumpDataService {
 

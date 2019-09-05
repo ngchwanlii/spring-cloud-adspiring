@@ -13,23 +13,19 @@ spring:
     properties:
       hibernate.format_sql: true
     open-in-view: false
-    datasource:
-      url: jdbc:mysql://127.0.0.1:3306/adspiring_ad_data?autoReconnect=true
-      username: root
-      password: password
-      tomcat:
-        max-active: 4
-        min-idle: 2
-        initial-size: 2
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/adspiring_ad_data?autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: password
+    tomcat:
+      max-active: 4
+      min-idle: 2
+      initial-size: 2
 
 eureka:
   client:
     service-url:
       defaultZone: http://server1:8000/eureka/
-
-
-
-
-
+    enabled: false
 
 

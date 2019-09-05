@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService {
         AdUser user = userRepository.findByUsername(request.getUsername());
 
         if (user != null) {
-            throw new AdException(Constants.ErrorMsg.DUPLICATE_USERNAME_ERROR);
+            throw new AdException(Constants.ErrorMsg.DUPLICATE_USER_NAME_ERROR);
         }
 
         user = userRepository.save(new AdUser(
