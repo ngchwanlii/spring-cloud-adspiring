@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- 指定父pom, 在父pom中配置子模块的公共依赖 -->
     <parent>
         <artifactId>adspiring-ad</artifactId>
         <groupId>com.adspiring.ad</groupId>
