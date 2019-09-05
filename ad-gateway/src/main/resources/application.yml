@@ -19,5 +19,3 @@ zuul:
       path: /ad-search/**
       serviceId: eureka-client-ad-search
       strip-prefix: false
-
-
