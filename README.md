@@ -56,7 +56,7 @@ each other.
 - [Intro to Zuul](https://github.com/Netflix/zuul)
 
 ## adspiring-ad-service
-- Contains the core logic, controllers, services for developing Adspiring Serving & Retrievavl system
+- Contains the core logic, controllers, services for developing Adspiring Serving & Retrieval system
 
 ### ad-common
 - Contains generic request, response, configuration, vo, exception handler
